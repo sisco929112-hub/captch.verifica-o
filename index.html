@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificação de Segurança</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="verify-title">
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+      </div>
+
+      <h1 id="verify-title">Verificação de Segurança</h1>
+      <p class="subtitle">
+        Confirme que você é humano para ser redirecionado com segurança para o destino solicitado.
+      </p>
+
+      <div class="destination-pill" title="Link de destino">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="destination-url">https://www.angonoticias.com/</span>
+      </div>
+
+      <!-- Caixa interativa estilo reCAPTCHA -->
+      <div class="captcha-box" id="captchaBox" role="group" aria-label="Caixa de verificação humana">
+        <button
+          type="button"
+          class="captcha-check"
+          id="captchaCheck"
+          aria-pressed="false"
+          aria-label="Não sou um robô"
+        >
+          <span class="checkbox-visual" id="checkboxVisual" aria-hidden="true">
+            <span class="spinner"></span>
+            <svg class="checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span class="captcha-label" id="captchaLabel">Não sou um robô</span>
+        </button>
+
+        <div class="captcha-brand" aria-hidden="true">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12a9 9 0 1 1-2.64-6.36" stroke-linecap="round" />
+            <polyline points="21 3 21 9 15 9" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="brand-name">Verificação</span>
+          <span class="brand-sub">Proteção Anti-Bot</span>
+        </div>
+      </div>
+
+      <button type="button" class="verify-btn" id="verifyBtn">
+        Verificar e Continuar
+      </button>
+
+      <p class="status-text" id="statusText" role="status" aria-live="polite"></p>
+
+      <footer class="card-footer">
+        <span>ID da sessão: <code id="sessionId">---</code></span>
+        <a href="https://www.angonoticias.com/" class="fallback-link" id="fallbackLink" hidden>
+          Clique aqui se não redirecionar
+        </a>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
